@@ -1,0 +1,8 @@
+<div class="admin-settings-sidebar">
+  <ul class="admin-settings__list">
+    <li class="admin-settings__item" [ngClass]="{'item--active': catalogItem.activeTab === activeTab, 'item--hover': catalogItem.activeTab !== activeTab}" *ngFor="let catalogItem of catalogMenu" (click)="changeTab(catalogItem.activeTab)">
+      <p class="admin-settings__text">{{catalogItem.name}}</p>
+      <i class="admin-settings__icon" [inlineSVG]="'assets/img/triangle.svg'"></i>
+    </li>
+  </ul>
+</div>

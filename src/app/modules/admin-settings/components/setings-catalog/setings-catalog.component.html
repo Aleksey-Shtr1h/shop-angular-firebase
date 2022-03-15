@@ -1,0 +1,123 @@
+<div class="admin-settings-catalog">
+  <admin-side-bar [catalogMenu]="catalogMenu" (changeActiveTab)="changeActiveTab($event)"></admin-side-bar>
+
+  <section class="catalog-setting-wrap">
+    <h2 class="v-h">catalog-setting</h2>
+
+    <global-component-step-bar 
+      [fieldsStepBar]="fieldsStepBar"
+      [step]="step"
+    ></global-component-step-bar>
+
+    <ng-container *ngIf="activeTab === 'create_category'">
+      <div class="form-create-category-wrap">
+        <form *ngIf="form" [formGroup]="form" class="setting-catalog-form">
+          <div class="container">
+
+            <!-- <div class="row" *ngIf="step === 1" formGroupName="step_1">
+              <div class="col">
+                <div class="form-group form-group-lg">
+                  <label class="form-label" for="category">Создать категорию</label>
+                  <div class="input-group">
+                    <input 
+                      class="form-control" 
+                      type="text" 
+                      name="category" 
+                      id="category" 
+                      formControlName="category"
+                      [ngClass]="this.form.controls['step_1'].get('category').errors ? 'is-invalid' : ''"
+                      >
+                      <div class="invalid-feedback">
+                        Введите категорию
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="form-group form-group-lg">
+                  <label class="form-label" for="subcategory">Создать подкатегорию</label>
+                  <div class="input-group">
+                    <input 
+                      class="form-control" 
+                      type="text" 
+                      name="subcategory" 
+                      id="subcategory" 
+                      formControlName="subCatagory"
+                      [ngClass]="this.form.controls['step_1'].get('subCatagory').errors ? 'is-invalid' : ''"
+                    >
+                      <div class="invalid-feedback">
+                        Введите подкатегорию
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <div class="column" *ngIf="step === 2" formGroupName="step_2">
+              <div class="col">
+                <generate-attribute [formControlName]="'atribute'"></generate-attribute>
+              </div>
+              <div class="col">
+                <div class="form-group form-group-lg">
+                  <label class="form-label" for="category">Создать категорию2</label>
+                  <input 
+                  class="form-control" 
+                  type="text" 
+                  name="category" 
+                  id="category" 
+                  formControlName="category"
+                  >
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="form-group form-group-lg">
+                  <label class="form-label" for="subcategory">Создать подкатегорию2</label>
+                  <input 
+                    class="form-control" 
+                    type="text" 
+                    name="subcategory" 
+                    id="subcategory" 
+                    formControlName="subCatagory"
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- <div class="row" *ngIf="step === 3" formGroupName="step_3">
+              <div class="col">
+                <div class="form-group form-group-lg">
+                  <label class="form-label" for="category">Создать категорию3</label>
+                  <input 
+                  class="form-control" 
+                  type="text" 
+                  name="category" 
+                  id="category" 
+                  formControlName="category"
+                  >
+                </div>
+              </div>
+              
+              <div class="col">
+                <div class="form-group form-group-lg">
+                  <label class="form-label" for="subcategory">Создать подкатегорию3</label>
+                  <input 
+                    class="form-control" 
+                    type="text" 
+                    name="subcategory" 
+                    id="subcategory" 
+                    formControlName="subCatagory"
+                  >
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </form>
+      </div>
+
+      <!-- <pre *ngIf="form">{{form.controls | json}}</pre> -->
+
+      <button *ngIf="step !== 1" (click)="onBack()">Back</button>
+      <button (click)="onNext()">Next</button>
+    </ng-container>
+  </section>
+</div>

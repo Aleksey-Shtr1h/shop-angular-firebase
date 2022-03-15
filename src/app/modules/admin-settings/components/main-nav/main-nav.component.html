@@ -1,0 +1,8 @@
+<div class="admin-settings-nav">
+  <ul class="admin-settings-nav__list">
+    <li class="admin-settings-nav__item" *ngFor="let itemNav of listNav" [routerLink]="[itemNav.pathLink]" routerLinkActive="router-link-active">
+      <i class="admin-settings-nav__icon" [inlineSVG]="itemNav.pathIcon"></i>
+      <p class="admin-settings-nav__title">{{itemNav.name}}</p>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,22 @@
+<div class="step-progres">
+  <ul class="step-progres__list">
+    <li 
+      class="step-progres__item" 
+      *ngFor="let fieldStepBar of fieldsStepBar; index as idx"
+      [ngClass]="{active: getActiveItem(idx), valid: fieldStepBar.valid === 'valid', invalid: fieldStepBar.valid === 'invalid'}"
+    >
+      <i 
+        class="counter-icon-valid" 
+        [inlineSVG]="'assets/img/check-step.svg'"
+      ></i>
+      <i 
+        class="counter-icon-invalid" 
+        [inlineSVG]="'assets/img/cross-step.svg'"
+      ></i>
+      <p 
+        class="counter" 
+      >{{fieldStepBar.step}}</p>
+      <p class="counter-text">{{fieldStepBar.title}}</p>
+    </li>
+  </ul>
+</div>

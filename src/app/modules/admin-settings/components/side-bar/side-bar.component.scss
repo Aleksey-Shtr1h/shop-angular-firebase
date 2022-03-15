@@ -1,0 +1,81 @@
+:host {
+  flex: 0 1 20%;
+  height: 100%;
+}
+
+.admin-settings-sidebar {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  padding: 2% 0px 0 50px;
+
+  background-color: #f8f7f5;
+
+  animation-name: opacity;
+  animation-duration: 1.5s;
+}
+
+.admin-settings__list {
+  display: flex;
+  flex-direction: column;
+  // align-items: stretch;
+}
+
+.admin-settings__item {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: all 0.8s ease 0s;
+
+  padding: 10px 0 10px 0px;
+
+  cursor: pointer;
+}
+
+.item--hover {
+  &:hover {
+    transform: translate(5%);
+  }
+  
+  &:hover .admin-settings__icon {
+    opacity: 1;
+  }
+}
+
+.item--active {
+  transform: translate(10%);
+  & .admin-settings__text {
+  color: #dd3531;
+  }
+  & .admin-settings__icon {
+    opacity: 1;
+  }
+}
+
+.admin-settings__text {
+  font-size: 16px;
+  font-weight: 550;
+  
+  transition-duration: 0.5s;
+
+  color: #333333;
+}
+
+.admin-settings__icon {
+  position: absolute;
+  opacity: 0;
+  transition-duration: 0.5s;
+
+  top: 50%;
+  transform: translate(0px, -50%) rotate(270deg);
+  left: -20px;
+
+  width: 10px;
+  height: 10px;
+
+  fill: #dd3531;
+}

@@ -1,0 +1,71 @@
+<header class="header">
+  <div class="header-top">
+    <div class="header-geolocation">
+      <i class="header-geolocation__icon" [inlineSVG]="'assets/img/location.svg'"></i>
+      <p class="header-geolocation__title">Красноярск</p>
+    </div>
+    <div class="header-admin" [routerLink]="['/admin-settings']" routerLinkActive="header-admin--active" >
+      <i class="header-admin__icon" [inlineSVG]="'assets/img/settings.svg'"></i>
+      <p class="header-admin__title">Настройки для админа</p>
+    </div>
+  </div>
+
+  <div class="header-container">
+    <div class="header-logo">
+      <a class="header-logo__link" href="">
+        <img class="header-logo__img" src="../../../assets/img/logo-shop.png" alt="logo-shop" width="694" height="530">
+      </a>
+    </div>
+
+    <div class="header-menu" (click)="toggleMenu()">
+      <div class="header-manu-container">
+        <div class="header-menu__icon" [ngClass]="{_active: isMenuOpen}">
+          <span></span>
+        </div>
+        <p *ngIf="!isMenuOpen" class="header-menu__title">Каталог</p>
+      </div>
+    </div>
+
+    <div class="header-search">
+      <input id="test" class="header-search__input" type="search" placeholder="Найти товар...">
+      <div class="search-icon-wrap">
+        <i class="search-icon" [inlineSVG]="'assets/img/search-icon.svg'"></i>
+      </div>
+    </div>
+    
+    <div class="user-settings">
+      <ul class="user-settings-nav">
+        <li class="user-settings-nav__item" *ngFor="let field of navSettingsFields">
+          <i class="user-settings-nav__icon" [inlineSVG]="field.pathIcon"></i>
+          <p class="user-settings-nav__text">{{field.text}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <div class="header-catalog"> -->
+    
+  <div class="header-catalog" *ngIf="isMenuOpen">
+    <div class="header-catalog-container">
+      <ul class="header-catalog__list">
+        <li class="header-catalog__item" (mouseenter)="test()">
+          <!-- header-catalog__item--active -->
+          <p class="header-catalog__text">Смартфоны и гаджеты</p>
+        </li>
+        <li class="header-catalog__item">
+          <p class="header-catalog__text">Ноутбуки и компьютеры</p>
+        </li>
+        <li class="header-catalog__item">
+          <p class="header-catalog__text">Техника для дома</p>
+        </li>
+        <li class="header-catalog__item">
+          <p class="header-catalog__text">Техника для кухни</p>
+        </li>
+      </ul>
+      <div class="header-catalog__info">
+  
+      </div>
+
+    </div>
+  </div>
+</header>
